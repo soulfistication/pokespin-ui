@@ -27,12 +27,17 @@ struct PokemonsView: View {
             ForEach (0..<6) { row in
                 GridRow {
                     ForEach(0..<3) { column in
-                        var index = 3 * row + column
-                        var pokemon = pokemons[index]
+                        let index = 3 * row + column
+                        let pokemon = pokemons[index]
                         if pokemon.isUnlocked {
-                            Image(String(index+1))
-                                .resizable()
-                                .frame(width: 30, height: 30)
+                            NavigationLink {
+                                PokemonView(pokemon: pokemon)
+                            } label: {
+                                Image(String(index+1))
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                            }
+
                         } else {
                             Text("\(pokemons[index].number)")
                                 .font(.largeTitle)
