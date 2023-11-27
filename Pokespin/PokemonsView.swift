@@ -37,11 +37,14 @@ struct PokemonsView: View {
                                     .resizable()
                                     .frame(width: 60, height: 60)
                             }
-
                         } else {
-                            Text("\(pokemons[index].number)")
-                                .font(.largeTitle)
-                                .padding()
+                            NavigationLink {
+                                SlotMachineContainerView(pokemon: pokemon)
+                            } label: {
+                                Text("\(pokemons[index].number)")
+                                    .font(.largeTitle)
+                                    .padding()
+                            }
                         }
                     }
                 }
