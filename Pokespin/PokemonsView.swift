@@ -13,13 +13,25 @@ struct Pokemon {
 
 struct PokemonsView: View {
 
-    var pokemons: [Pokemon] = [Pokemon(number: "1"),
-                               Pokemon(number: "2"),
-                               Pokemon(number: "3")]
+    var pokemons: [Pokemon] {
+        var result = [Pokemon]()
+        for i in 0..<18 {
+            result.append(Pokemon(number: "\(i)"))
+        }
+        return result
+    }
 
     var body: some View {
-        List(pokemons, id: \.number) { pokemon in
-            Text(pokemon.number)
+        Grid {
+            ForEach (0..<6) { row in
+                GridRow {
+                    ForEach(0..<3) { column in
+                        Text("\(pokemons[3*row+column].number)")
+                            .font(.largeTitle)
+                            .padding()
+                    }
+                }
+            }
         }
     }
 
