@@ -17,5 +17,6 @@ struct PokemonView: View {
 }
 
 #Preview {
-    PokemonView(pokemon: Pokemon(number: "1", isUnlocked: false))
+    PokemonView(pokemon: Pokemon(number: "1",
+                                 isUnlocked: false))
 }

@@ -17,5 +17,6 @@ struct SlotMachineContainerView: View {
 }
 
 #Preview {
-    SlotMachineContainerView(pokemon: Pokemon(number: "0", isUnlocked: false))
+    SlotMachineContainerView(pokemon: Pokemon(number: "0",
+                                              isUnlocked: false))
 }

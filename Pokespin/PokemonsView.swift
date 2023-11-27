@@ -17,7 +17,8 @@ struct PokemonsView: View {
     var pokemons: [Pokemon] {
         var result = [Pokemon]()
         for i in 0..<18 {
-            result.append(Pokemon(number: "\(i)", isUnlocked: (i%2 == 0)))
+            result.append(Pokemon(number: "\(i)", 
+                                  isUnlocked: (i%2 == 0)))
         }
         return result
     }
