@@ -24,7 +24,7 @@ struct ContentView: View {
                 .padding(.all)
             Button("Reset progress") { resetProgress() }
                 .padding(.bottom)
-            Text("Copyright Iván Almada 2023")
+            Text("Copyright Iván Almada 2024")
                 .font(.footnote)
         }
         .padding()
