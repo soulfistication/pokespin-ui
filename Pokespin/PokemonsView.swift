@@ -12,16 +12,18 @@ struct Pokemon {
     var isUnlocked: Bool
 }
 
+func generateMockPokemons() -> [Pokemon] {
+    var pokemons = [Pokemon]()
+    for i in 1...18 {
+        pokemons.append(Pokemon(number: "\(i)",
+                            isUnlocked: (i%2 != 0)))
+    }
+    return pokemons
+}
+
 struct PokemonsView: View {
 
-    var pokemons: [Pokemon] {
-        var result = [Pokemon]()
-        for i in 1...18 {
-            result.append(Pokemon(number: "\(i)",
-                                  isUnlocked: (i%2 != 0)))
-        }
-        return result
-    }
+    var pokemons: [Pokemon]
 
     var body: some View {
         Grid {
@@ -40,5 +42,5 @@ struct PokemonsView: View {
 }
 
 #Preview {
-    PokemonsView()
+    PokemonsView(pokemons: generateMockPokemons())
 }
