@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct Pokemon {
+struct Pokemon: IPokemon {
     var number: String
     var isUnlocked: Bool
 }
 
-func generateMockPokemons() -> [Pokemon] {
+protocol IPokemon {
+    var number: String { get }
+    var isUnlocked: Bool { get }
+}
+
+func generateMockPokemons() -> [IPokemon] {
     var pokemons = [Pokemon]()
     for i in 1...18 {
         pokemons.append(Pokemon(number: "\(i)",
@@ -23,7 +28,7 @@ func generateMockPokemons() -> [Pokemon] {
 
 struct PokemonsView: View {
 
-    var pokemons: [Pokemon]
+    var pokemons: [IPokemon]
 
     var body: some View {
         Grid {

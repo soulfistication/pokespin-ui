@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonDetailView: View {
 
-    var pokemon: Pokemon
+    var pokemon: IPokemon
 
     var body: some View {
         VStack {

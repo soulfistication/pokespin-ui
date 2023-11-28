@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonCellView: View {
 
-    var pokemon: Pokemon
+    var pokemon: IPokemon
 
     var body: some View {
         ZStack {

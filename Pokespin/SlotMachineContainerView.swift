@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SlotMachineContainerView: View {
 
-    var pokemon: Pokemon
+    var pokemon: IPokemon
 
     var body: some View {
         Text("Playing to win Pokemon: \(pokemon.number)")

@@ -12,8 +12,7 @@ struct SplashView: View {
     var pokemons: [Pokemon] {
         var result = [Pokemon]()
         for i in 1...18 {
-            result.append(Pokemon(number: "\(i)",
-                                    isUnlocked: false))
+            result.append(Pokemon(number: "\(i)", isUnlocked: false))
         }
         return result
     }
