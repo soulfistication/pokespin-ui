@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonCellView: View {
 
-    var pokemon: IPokemon
+    @Binding var pokemon: IPokemon
 
     var body: some View {
         ZStack {
@@ -34,8 +34,4 @@ struct PokemonCellView: View {
             }
         }
     }
-}
-
-#Preview {
-    PokemonCellView(pokemon: Pokemon(number: "1", isUnlocked: true))
 }

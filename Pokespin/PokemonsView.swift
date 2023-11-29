@@ -10,25 +10,42 @@ import SwiftUI
 struct Pokemon: IPokemon {
     var number: String
     var isUnlocked: Bool
+
+    mutating func unlock() {
+        isUnlocked.toggle()
+    }
 }
 
 protocol IPokemon {
     var number: String { get }
     var isUnlocked: Bool { get }
+    mutating func unlock()
 }
 
-func generateMockPokemons() -> [IPokemon] {
-    var pokemons = [Pokemon]()
-    for i in 1...18 {
-        pokemons.append(Pokemon(number: "\(i)",
-                            isUnlocked: (i%2 != 0)))
+
+class PokemonStorage: ObservableObject {
+    @Published var pokemons: [IPokemon]
+
+    init(pokemons: [IPokemon]) {
+        self.pokemons = pokemons
     }
-    return pokemons
+
+    static func generateMockPokemons() -> [IPokemon] {
+        var pokemons = [Pokemon]()
+        for i in 1...18 {
+            pokemons.append(Pokemon(number: "\(i)",
+                                isUnlocked: (i%2 != 0)))
+        }
+        return pokemons
+    }
 }
+
+
 
 struct PokemonsView: View {
 
-    var pokemons: [IPokemon]
+    @ObservedObject var pokemonStorage: PokemonStorage
+
 
     var body: some View {
         Grid {
@@ -36,8 +53,8 @@ struct PokemonsView: View {
                 GridRow {
                     ForEach(0..<3) { column in
                         let index = 3 * row + column
-                        let pokemon = pokemons[index]
-                        PokemonCellView(pokemon: pokemon)
+                        let pokemon = pokemonStorage.pokemons[index]
+                        PokemonCellView(pokemon: $pokemon)
                     }
                 }
             }
@@ -47,5 +64,5 @@ struct PokemonsView: View {
 }
 
 #Preview {
-    PokemonsView(pokemons: generateMockPokemons())
+    PokemonsView(pokemonStorage: PokemonStorage(pokemons: PokemonStorage.generateMockPokemons()))
 }
