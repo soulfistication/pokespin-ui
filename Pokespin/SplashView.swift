@@ -31,7 +31,7 @@ struct SplashView: View {
                     .font(.footnote)
                 Spacer()
                 NavigationLink {
-                    PokemonsView(pokemons: pokemons)
+                    PokemonsView(pokemonStorage: PokemonStorage(pokemons: PokemonStorage.generatePokemons()))
                 } label: {
                     Text("Start game")
                         .padding(.top)

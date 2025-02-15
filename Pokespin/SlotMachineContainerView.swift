@@ -9,13 +9,13 @@ import SwiftUI
 
 struct SlotMachineContainerView: View {
 
-    @Binding var pokemon: IPokemon
+    var pokemon: IPokemon
 
     var body: some View {
         Text("Playing to win Pokemon: \(pokemon.number)")
         Spacer()
         Button(action: {
-            pokemon.unlock()
+            //pokemon.unlock()
         }, label: {
             Text("Unlock")
         })

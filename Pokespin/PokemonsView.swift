@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+protocol IPokemon {
+    var number: String { get }
+    var isUnlocked: Bool { get }
+    mutating func unlock()
+}
+
+
 struct Pokemon: IPokemon {
     var number: String
     var isUnlocked: Bool
@@ -16,21 +23,15 @@ struct Pokemon: IPokemon {
     }
 }
 
-protocol IPokemon {
-    var number: String { get }
-    var isUnlocked: Bool { get }
-    mutating func unlock()
-}
-
-
 class PokemonStorage: ObservableObject {
+    
     @Published var pokemons: [IPokemon]
 
     init(pokemons: [IPokemon]) {
         self.pokemons = pokemons
     }
 
-    static func generateMockPokemons() -> [IPokemon] {
+    static func generatePokemons() -> [IPokemon] {
         var pokemons = [Pokemon]()
         for i in 1...18 {
             pokemons.append(Pokemon(number: "\(i)",
@@ -41,11 +42,9 @@ class PokemonStorage: ObservableObject {
 }
 
 
-
 struct PokemonsView: View {
 
-    @ObservedObject var pokemonStorage: PokemonStorage
-
+    @StateObject var pokemonStorage: PokemonStorage
 
     var body: some View {
         Grid {
@@ -54,15 +53,16 @@ struct PokemonsView: View {
                     ForEach(0..<3) { column in
                         let index = 3 * row + column
                         let pokemon = pokemonStorage.pokemons[index]
-                        PokemonCellView(pokemon: $pokemon)
+                        PokemonCellView(pokemon: pokemon)
                     }
                 }
             }
         }
+        .padding(.all)
     }
 
 }
 
 #Preview {
-    PokemonsView(pokemonStorage: PokemonStorage(pokemons: PokemonStorage.generateMockPokemons()))
+    PokemonsView(pokemonStorage: PokemonStorage(pokemons: PokemonStorage.generatePokemons()))
 }
