@@ -13,11 +13,12 @@ struct PokemonDetailView: View {
 
     var body: some View {
         VStack {
-            Text("Unlocked Pokemon")
+            Text("You unlocked this Pokemon")
             Image(pokemon.number)
                 .resizable()
                 .scaledToFit()
         }
+        .navigationTitle("Pokemon")
     }
 }
 

@@ -58,6 +58,7 @@ struct PokemonsView: View {
                 }
             }
         }
+        .navigationTitle("Pokemons")
         .padding(.all)
     }
 
