@@ -9,14 +9,6 @@ import SwiftUI
 
 struct SplashView: View {
 
-    var pokemons: [Pokemon] {
-        var result = [Pokemon]()
-        for i in 1...18 {
-            result.append(Pokemon(number: "\(i)", isUnlocked: false))
-        }
-        return result
-    }
-
     var body: some View {
         NavigationStack {
             VStack {
