@@ -14,17 +14,22 @@ struct SlotMachineContainerView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        Text("Playing to unlock Pokemon: \(pokemon.number)")
-        HStack {
-            Image("SpinPokemon")
-            Text("Good luck!")
+        VStack {
+            Text("Playing to unlock Pokemon: \(pokemon.number)")
+            HStack {
+                Image("SpinPokemon")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                Text("Good luck!")
+            }
+            Spacer()
+            Button(action: {
+                self.pokemon.unlock()
+                dismiss()
+            }, label: {
+                Text("Play to unlock this pokemon")
+            })
         }
-        Spacer()
-        Button(action: {
-            self.pokemon.unlock()
-            dismiss()
-        }, label: {
-            Text("Unlock this pokemon")
-        })
+        .padding(.all)
     }
 }
