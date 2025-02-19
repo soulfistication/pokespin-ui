@@ -13,16 +13,20 @@ struct PokemonDetailView: View {
 
     var body: some View {
         VStack {
-            Text("You unlocked this Pokemon")
+            Text("You unlocked: \(pokemon.name)")
+                .font(.title)
+            Text("Pokemon number: \(pokemon.number)")
+                .font(.title2)
             Image(pokemon.number)
                 .resizable()
                 .scaledToFit()
+                .padding(.all)
         }
         .navigationTitle("Pokemon")
     }
 }
 
 #Preview {
-    PokemonDetailView(pokemon: Pokemon(number: "1",
+    PokemonDetailView(pokemon: Pokemon(name: PokemonStorage.convertName(number: 1), number: "1",
                                  isUnlocked: true))
 }
