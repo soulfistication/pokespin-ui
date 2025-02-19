@@ -24,5 +24,5 @@ struct PokemonDetailView: View {
 
 #Preview {
     PokemonDetailView(pokemon: Pokemon(number: "1",
-                                 isUnlocked: false))
+                                 isUnlocked: true))
 }
