@@ -27,12 +27,14 @@ struct SplashView: View {
                 } label: {
                     Text("Start game")
                         .padding(.top)
+                        .font(.title)
                 }
                 Button(action: {
                     resetProgress()
                 }, label: {
                     Text("Reset progress")
                         .padding()
+                        .font(.caption)
                 })
                 Text("Copyright Iván Almada 2024")
                     .font(.footnote)
