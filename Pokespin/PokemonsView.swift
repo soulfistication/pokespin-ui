@@ -35,7 +35,7 @@ class PokemonStorage: ObservableObject {
         var pokemons = [Pokemon]()
         for i in 1...18 {
             pokemons.append(Pokemon(number: "\(i)",
-                                isUnlocked: (i%2 != 0)))
+                                isUnlocked: (i % 2 != 0)))
         }
         return pokemons
     }
