@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonCellView: View {
 
-    let pokemon: IPokemon
+    @State var pokemon: IPokemon
 
     var body: some View {
         ZStack {
@@ -25,7 +25,7 @@ struct PokemonCellView: View {
                 }
             } else {
                 NavigationLink {
-                    SlotMachineContainerView(pokemon: pokemon)
+                    SlotMachineContainerView(pokemon: $pokemon)
                 } label: {
                     Text("\(pokemon.number)")
                         .font(.largeTitle)
