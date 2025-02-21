@@ -76,14 +76,23 @@ struct SlotMachineView: View {
                                      pokemon: $pokemon)
             .sheet(isPresented: $sheetIsPresented) {
                 if userHasWon {
-                    Text("Congratulations. You unlocked: \(pokemon.name)")
-                        .font(.title3)
-                        .padding(.all)
+                    VStack {
+                        Text("🎉 Congratulations! 🥳")
+                            .font(.title3)
+                            .padding(.all)
+                        Text("You unlocked:")
+                            .font(.title3)
+                            .padding(.all)
+                        Text(pokemon.name)
+                            .font(.title3)
+                            .bold()
+                            .padding(.all)
+                    }
                     Image(pokemon.number)
                         .resizable()
                         .scaledToFit()
                 } else {
-                    Text("You lost. Please try again.")
+                    Text("You lost 🙁. Please try again.")
                         .font(.title3)
                         .padding(.all)
                 }
