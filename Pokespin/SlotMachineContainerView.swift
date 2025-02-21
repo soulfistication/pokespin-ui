@@ -87,10 +87,13 @@ struct SlotMachineView: View {
                         .font(.title3)
                         .padding(.all)
                 }
-                Button("Ok") {
+                Button(action: {
                     sheetIsPresented = false
                     dismiss()
-                }
+                }, label: {
+                    Text("OK")
+                        .font(.title3)
+                })
             }
         }
         .padding(.all)
