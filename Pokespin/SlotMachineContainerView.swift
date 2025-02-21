@@ -66,6 +66,7 @@ struct SlotMachineView: View {
             .padding(.bottom)
             SlotMachineContainerView { win in
                 if win { self.pokemon.unlock() }
+                // TODO: Present Alert in SwiftUI
                 dismiss()
             }
         }

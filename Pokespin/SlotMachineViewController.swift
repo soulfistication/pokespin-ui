@@ -110,18 +110,6 @@ class SlotMachineViewController: UIViewController, UIPickerViewDataSource, UIPic
                 })
             } else {
                  self.delegate?.slotMachineExecuted(win: false)
-                // TODO: Present Alert in SwiftUI
-//                var message = "You lost! Please try again."
-//                if firstHit || secondHit || thirdHit {
-//                    message = "You almost won! Please try again"
-//                }
-//                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-//                let action = UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) in
-//                    guard let self else { return }
-//                    self.dismiss(animated: true, completion: nil)
-//                })
-//                alertController.addAction(action)
-//                self.show(alertController, sender: nil)
             }
         }
     }
