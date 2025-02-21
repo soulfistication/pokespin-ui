@@ -7,7 +7,20 @@
 
 import SwiftUI
 
-struct SlotMachineContainerView: View {
+struct SlotMachineContainerView: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: Context) -> SlotMachineViewController {
+        let slotMachineViewController = SlotMachineViewController()
+        return slotMachineViewController
+    }
+    
+    func updateUIViewController(_ uiViewController: SlotMachineViewController, context: Context) {
+        
+    }
+    
+}
+
+struct SlotMachineView: View {
 
     @Binding var pokemon: IPokemon
     
@@ -22,6 +35,7 @@ struct SlotMachineContainerView: View {
                     .frame(width: 100, height: 100)
                 Text("Good luck!")
             }
+            SlotMachineContainerView()
             Spacer()
             Button(action: {
                 self.pokemon.unlock()

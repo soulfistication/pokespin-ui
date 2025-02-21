@@ -15,6 +15,8 @@
 		248606B32B14C96D00D545A9 /* PokemonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248606B22B14C96D00D545A9 /* PokemonsView.swift */; };
 		24C7D90C2B14ECB0003D6CBD /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7D90B2B14ECB0003D6CBD /* PokemonDetailView.swift */; };
 		24C7D90E2B14F01E003D6CBD /* SlotMachineContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C7D90D2B14F01D003D6CBD /* SlotMachineContainerView.swift */; };
+		F94C30B22D67F95E0078398A /* SlotMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C30B12D67F95E0078398A /* SlotMachineViewController.swift */; };
+		F94C30B42D67FAB40078398A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C30B32D67FAA90078398A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		248606B22B14C96D00D545A9 /* PokemonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsView.swift; sourceTree = "<group>"; };
 		24C7D90B2B14ECB0003D6CBD /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 		24C7D90D2B14F01D003D6CBD /* SlotMachineContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineContainerView.swift; sourceTree = "<group>"; };
+		F94C30B12D67F95E0078398A /* SlotMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineViewController.swift; sourceTree = "<group>"; };
+		F94C30B32D67FAA90078398A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,14 @@
 		248606A22B14A62400D545A9 /* Pokespin */ = {
 			isa = PBXGroup;
 			children = (
+				F94C30B32D67FAA90078398A /* Constants.swift */,
 				248606A32B14A62400D545A9 /* PokespinApp.swift */,
 				248606A52B14A62400D545A9 /* SplashView.swift */,
 				248606B22B14C96D00D545A9 /* PokemonsView.swift */,
 				247961AC2B15F1C300852E71 /* PokemonCellView.swift */,
 				24C7D90B2B14ECB0003D6CBD /* PokemonDetailView.swift */,
 				24C7D90D2B14F01D003D6CBD /* SlotMachineContainerView.swift */,
+				F94C30B12D67F95E0078398A /* SlotMachineViewController.swift */,
 				248606A72B14A62600D545A9 /* Assets.xcassets */,
 				248606A92B14A62600D545A9 /* Pokespin.entitlements */,
 				248606AA2B14A62600D545A9 /* Preview Content */,
@@ -154,9 +160,11 @@
 				247961AD2B15F1C300852E71 /* PokemonCellView.swift in Sources */,
 				248606B32B14C96D00D545A9 /* PokemonsView.swift in Sources */,
 				24C7D90C2B14ECB0003D6CBD /* PokemonDetailView.swift in Sources */,
+				F94C30B22D67F95E0078398A /* SlotMachineViewController.swift in Sources */,
 				248606A62B14A62400D545A9 /* SplashView.swift in Sources */,
 				24C7D90E2B14F01E003D6CBD /* SlotMachineContainerView.swift in Sources */,
 				248606A42B14A62400D545A9 /* PokespinApp.swift in Sources */,
+				F94C30B42D67FAB40078398A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

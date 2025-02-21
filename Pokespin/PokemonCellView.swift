@@ -25,7 +25,7 @@ struct PokemonCellView: View {
                 }
             } else {
                 NavigationLink {
-                    SlotMachineContainerView(pokemon: $pokemon)
+                    SlotMachineView(pokemon: $pokemon)
                 } label: {
                     Text("\(pokemon.number)")
                         .font(.largeTitle)
