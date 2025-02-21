@@ -14,7 +14,7 @@ struct PokemonCellView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10.0)
-                .foregroundColor(.mint)
+                .foregroundColor(Color(uiColor: UIColor.creamyBlue))
             if pokemon.isUnlocked {
                 NavigationLink {
                     PokemonDetailView(pokemon: pokemon)
@@ -29,6 +29,7 @@ struct PokemonCellView: View {
                 } label: {
                     Text("\(pokemon.number)")
                         .font(.largeTitle)
+                        .foregroundColor(Color.white)
                         .padding()
                 }
             }
