@@ -45,6 +45,8 @@ struct SlotMachineView: View {
 
     @Binding var pokemon: IPokemon
     
+    @State var sheetIsPresented = false
+    
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -66,8 +68,24 @@ struct SlotMachineView: View {
             .padding(.bottom)
             SlotMachineContainerView { win in
                 if win { self.pokemon.unlock() }
-                // TODO: Present Alert in SwiftUI
-                dismiss()
+                sheetIsPresented = true
+            }.sheet(isPresented: $sheetIsPresented) {
+                if pokemon.isUnlocked {
+                    Text("Congratulations. You unlocked: \(pokemon.name)")
+                        .font(.title3)
+                        .padding(.all)
+                    Image(pokemon.number)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Text("You lost. Please try again.")
+                        .font(.title3)
+                        .padding(.all)
+                }
+                Button("Ok") {
+                    sheetIsPresented = false
+                    dismiss()
+                }
             }
         }
         .padding(.all)
