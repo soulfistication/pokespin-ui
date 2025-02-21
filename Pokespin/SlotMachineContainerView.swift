@@ -10,7 +10,8 @@ import SwiftUI
 struct SlotMachineContainerView: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> SlotMachineViewController {
-        let slotMachineViewController = SlotMachineViewController()
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let slotMachineViewController = storyBoard.instantiateViewController(identifier: "SlotMachineViewController") as SlotMachineViewController
         return slotMachineViewController
     }
     
