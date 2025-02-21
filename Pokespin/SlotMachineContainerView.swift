@@ -29,13 +29,21 @@ struct SlotMachineView: View {
 
     var body: some View {
         VStack {
-            Text("Playing to unlock Pokemon: \(pokemon.number)")
+            VStack {
+                Text("Now playing to unlock Pokemon:")
+                    .font(.headline)
+                Text(pokemon.number)
+                    .font(.largeTitle)
+            }
             HStack {
                 Image("SpinPokemon")
                     .resizable()
-                    .frame(width: 100, height: 100)
-                Text("Good luck!")
+                    .frame(width: 120, height: 100)
+                Text("Good Luck!")
+                    .font(.title3)
+                    .bold()
             }
+            .padding(.bottom)
             SlotMachineContainerView()
             Spacer()
             Button(action: {
