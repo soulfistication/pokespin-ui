@@ -9,18 +9,24 @@ import SwiftUI
 
 struct SlotMachineContainerView: UIViewControllerRepresentable {
     
-    var finishFlow: (Bool) -> Void
+    @Binding var userHasWon: Bool
+    @Binding var sheetIsPresented: Bool
+    @Binding var pokemon: IPokemon
     
     class Coordinator: NSObject, SlotMachineExecutable {
         
-        var flow: (Bool) -> Void
+        var parent: SlotMachineContainerView
         
-        init(flow: @escaping (Bool) -> Void) {
-            self.flow = flow
+        init(_ parent: SlotMachineContainerView) {
+            self.parent = parent
         }
         
         func slotMachineExecuted(win: Bool) {
-            flow(win)
+            parent.userHasWon = win
+            parent.sheetIsPresented = true
+            if win {
+                parent.pokemon.unlock()
+            }
         }
     }
     
@@ -36,7 +42,7 @@ struct SlotMachineContainerView: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(flow: self.finishFlow)
+        Coordinator(self)
     }
     
 }
@@ -44,9 +50,8 @@ struct SlotMachineContainerView: UIViewControllerRepresentable {
 struct SlotMachineView: View {
 
     @Binding var pokemon: IPokemon
-    
     @State var sheetIsPresented = false
-    
+    @State var userHasWon = false
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -66,11 +71,11 @@ struct SlotMachineView: View {
                     .bold()
             }
             .padding(.bottom)
-            SlotMachineContainerView { win in
-                if win { self.pokemon.unlock() }
-                sheetIsPresented = true
-            }.sheet(isPresented: $sheetIsPresented) {
-                if pokemon.isUnlocked {
+            SlotMachineContainerView(userHasWon: $userHasWon,
+                                     sheetIsPresented: $sheetIsPresented,
+                                     pokemon: $pokemon)
+            .sheet(isPresented: $sheetIsPresented) {
+                if userHasWon {
                     Text("Congratulations. You unlocked: \(pokemon.name)")
                         .font(.title3)
                         .padding(.all)
