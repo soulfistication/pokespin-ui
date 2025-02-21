@@ -81,7 +81,7 @@ struct SlotMachineView: View {
                             .font(.title3)
                             .padding(.all)
                         Text("You unlocked:")
-                            .font(.title3)
+                            .font(.caption)
                             .padding(.all)
                         Text(pokemon.name)
                             .font(.title3)
