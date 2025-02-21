@@ -8,18 +8,17 @@
 
 import UIKit
 
-@objc protocol ScreenDismissable: NSObjectProtocol {
-    func screenDismissed()
+@objc protocol SlotMachineExecutable: NSObjectProtocol {
+    func slotMachineExecuted(win: Bool)
 }
 
-class SlotMachineViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, ScreenDismissable {
+class SlotMachineViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     var pokemonNumber: Int = 0
-    weak var delegate: ScreenDismissable?
+    weak var delegate: SlotMachineExecutable?
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var pokemonNumberLabel: UILabel!
     @IBOutlet weak var slotMachinePickerView: UIPickerView!
     @IBOutlet weak var wonLabel: UILabel!
     @IBOutlet weak var wonImageView: UIImageView!
@@ -35,7 +34,6 @@ class SlotMachineViewController: UIViewController, UIPickerViewDataSource, UIPic
     // MARK: - Setup UI
 
     func setupUI() {
-        pokemonNumberLabel.text = String(pokemonNumber)
         view.backgroundColor = UIColor.creamyBlue
         slotMachinePickerView.selectRow(4, inComponent: 0, animated: true)
         slotMachinePickerView.selectRow(4, inComponent: 1, animated: true)
@@ -43,10 +41,6 @@ class SlotMachineViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
 
     // MARK: - IBActions
-
-    @IBAction func closeButtonTapped(sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
-    }
 
     @IBAction func spinSlotMachine(sender: AnyObject) {
         spin()
@@ -83,24 +77,6 @@ class SlotMachineViewController: UIViewController, UIPickerViewDataSource, UIPic
         return "💊"
     }
 
-    // MARK: - Screen Dismissable
-
-    func screenDismissed() {
-        dismiss(animated: true) { [weak self] in
-            self?.delegate?.screenDismissed()
-        }
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == Constants.SegueIdentifier.openSuccess.rawValue {
-//            let successViewController = segue.destination as! SuccessViewController
-//            successViewController.pokemonNumber = pokemonNumber
-//            successViewController.delegate = self
-//        }
-    }
-    
     // MARK: - Logic
     func spin() {
         spinSlotButton.isEnabled = false
@@ -122,26 +98,30 @@ class SlotMachineViewController: UIViewController, UIPickerViewDataSource, UIPic
         let thirdHit = firstSymbol == thirdSymbol
 
         let successHit = firstHit && secondHit
-        //let successHit = true // Make it always win
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
+            guard let self else { return }
             if successHit {
-                self?.wonLabel.isHidden = false
-                self?.wonImageView.isHidden = false
+                self.wonLabel.isHidden = false
+                self.wonImageView.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: { [weak self] in
-                    self?.performSegue(withIdentifier: Constants.SegueIdentifier.openSuccess.rawValue, sender: nil)
+                    guard let self else { return }
+                    self.delegate?.slotMachineExecuted(win: true)
                 })
             } else {
-                var message = "You lost! Please try again."
-                if firstHit || secondHit || thirdHit {
-                    message = "You almost won! Please try again"
-                }
-                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) in
-                    self?.dismiss(animated: true, completion: nil)
-                })
-                alertController.addAction(action)
-                self?.show(alertController, sender: nil)
+                 self.delegate?.slotMachineExecuted(win: false)
+                // TODO: Present Alert in SwiftUI
+//                var message = "You lost! Please try again."
+//                if firstHit || secondHit || thirdHit {
+//                    message = "You almost won! Please try again"
+//                }
+//                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+//                let action = UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) in
+//                    guard let self else { return }
+//                    self.dismiss(animated: true, completion: nil)
+//                })
+//                alertController.addAction(action)
+//                self.show(alertController, sender: nil)
             }
         }
     }

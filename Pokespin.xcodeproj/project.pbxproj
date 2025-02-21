@@ -18,6 +18,7 @@
 		F94C30B22D67F95E0078398A /* SlotMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C30B12D67F95E0078398A /* SlotMachineViewController.swift */; };
 		F94C30B42D67FAB40078398A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C30B32D67FAA90078398A /* Constants.swift */; };
 		F94C30B62D6809C20078398A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94C30B52D6809C20078398A /* Main.storyboard */; };
+		F967D2B42D68D18A0004B461 /* Futura-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F967D2B32D68D18A0004B461 /* Futura-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F94C30B12D67F95E0078398A /* SlotMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineViewController.swift; sourceTree = "<group>"; };
 		F94C30B32D67FAA90078398A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F94C30B52D6809C20078398A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F967D2B32D68D18A0004B461 /* Futura-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				248606A92B14A62600D545A9 /* Pokespin.entitlements */,
 				248606AA2B14A62600D545A9 /* Preview Content */,
 				F94C30B52D6809C20078398A /* Main.storyboard */,
+				F967D2B32D68D18A0004B461 /* Futura-Light.ttf */,
 			);
 			path = Pokespin;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F967D2B42D68D18A0004B461 /* Futura-Light.ttf in Resources */,
 				F94C30B62D6809C20078398A /* Main.storyboard in Resources */,
 				248606AC2B14A62600D545A9 /* Preview Assets.xcassets in Resources */,
 				248606A82B14A62600D545A9 /* Assets.xcassets in Resources */,

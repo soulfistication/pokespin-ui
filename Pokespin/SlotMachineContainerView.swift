@@ -9,14 +9,34 @@ import SwiftUI
 
 struct SlotMachineContainerView: UIViewControllerRepresentable {
     
+    var finishFlow: (Bool) -> Void
+    
+    class Coordinator: NSObject, SlotMachineExecutable {
+        
+        var flow: (Bool) -> Void
+        
+        init(flow: @escaping (Bool) -> Void) {
+            self.flow = flow
+        }
+        
+        func slotMachineExecuted(win: Bool) {
+            flow(win)
+        }
+    }
+    
     func makeUIViewController(context: Context) -> SlotMachineViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let slotMachineViewController = storyBoard.instantiateViewController(identifier: "SlotMachineViewController") as SlotMachineViewController
+        slotMachineViewController.delegate = context.coordinator
         return slotMachineViewController
     }
     
     func updateUIViewController(_ uiViewController: SlotMachineViewController, context: Context) {
         
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(flow: self.finishFlow)
     }
     
 }
@@ -44,14 +64,10 @@ struct SlotMachineView: View {
                     .bold()
             }
             .padding(.bottom)
-            SlotMachineContainerView()
-            Spacer()
-            Button(action: {
-                self.pokemon.unlock()
+            SlotMachineContainerView { win in
+                if win { self.pokemon.unlock() }
                 dismiss()
-            }, label: {
-                Text("Play to unlock this pokemon")
-            })
+            }
         }
         .padding(.all)
     }
