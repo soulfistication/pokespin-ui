@@ -1,29 +1,11 @@
 //
-//  PokemonsView.swift
+//  PokemonStorage.swift
 //  Pokespin
 //
-//  Created by Iván Almada on 11/27/23.
+//  Created by Montserrat Arroyo on 2/21/25.
 //
 
-import SwiftUI
-
-protocol IPokemon {
-    var name: String { get }
-    var number: String { get }
-    var isUnlocked: Bool { get }
-    mutating func unlock()
-}
-
-
-struct Pokemon: IPokemon {
-    var name: String
-    var number: String
-    var isUnlocked: Bool
-
-    mutating func unlock() {
-        isUnlocked.toggle()
-    }
-}
+import Combine
 
 class PokemonStorage: ObservableObject {
     
@@ -66,31 +48,4 @@ class PokemonStorage: ObservableObject {
         default: return "N/A"
         }
     }
-}
-
-
-struct PokemonsView: View {
-
-    @StateObject var pokemonStorage: PokemonStorage
-
-    var body: some View {
-        Grid {
-            ForEach (0..<6) { row in
-                GridRow {
-                    ForEach(0..<3) { column in
-                        let index = 3 * row + column
-                        let pokemon = pokemonStorage.pokemons[index]
-                        PokemonCellView(pokemon: pokemon)
-                    }
-                }
-            }
-        }
-        .navigationTitle("Pokemons")
-        .padding(.all)
-    }
-
-}
-
-#Preview {
-    PokemonsView(pokemonStorage: PokemonStorage(pokemons: PokemonStorage.generatePokemons()))
 }
