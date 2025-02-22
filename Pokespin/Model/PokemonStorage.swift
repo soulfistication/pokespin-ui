@@ -9,23 +9,18 @@ import Combine
 
 class PokemonStorage: ObservableObject {
     
-    @Published var pokemons: [IPokemon]
+    @Published var pokemons: [Pokemon]
 
-    init(pokemons: [IPokemon]) {
-        self.pokemons = pokemons
-    }
-
-    static func generatePokemons() -> [IPokemon] {
-        var pokemons = [Pokemon]()
+    init() {
+        pokemons = [Pokemon]()
         for i in 1...18 {
             pokemons.append(Pokemon(name: convertName(number: i),
                                     number: "\(i)",
                                     isUnlocked: (i % 2 != 0)))
         }
-        return pokemons
     }
-    
-    static func convertName(number: Int) -> String {
+
+    func convertName(number: Int) -> String {
         switch number {
         case 1: return "Bulbasaur"
         case 2: return "Ivysaur"

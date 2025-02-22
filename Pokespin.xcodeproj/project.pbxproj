@@ -23,6 +23,7 @@
 		F95FEC372D69550E00208816 /* IPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FEC362D69550E00208816 /* IPokemon.swift */; };
 		F95FEC392D69552C00208816 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FEC382D69552C00208816 /* Pokemon.swift */; };
 		F95FEC3B2D6955A500208816 /* PokemonStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FEC3A2D6955A500208816 /* PokemonStorage.swift */; };
+		F95FEC3D2D6958BE00208816 /* SlotMachineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FEC3C2D6958BE00208816 /* SlotMachineView.swift */; };
 		F967D2B42D68D18A0004B461 /* Futura-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F967D2B32D68D18A0004B461 /* Futura-Light.ttf */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		F95FEC362D69550E00208816 /* IPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPokemon.swift; sourceTree = "<group>"; };
 		F95FEC382D69552C00208816 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		F95FEC3A2D6955A500208816 /* PokemonStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStorage.swift; sourceTree = "<group>"; };
+		F95FEC3C2D6958BE00208816 /* SlotMachineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineView.swift; sourceTree = "<group>"; };
 		F967D2B32D68D18A0004B461 /* Futura-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				248606B22B14C96D00D545A9 /* PokemonsView.swift */,
 				247961AC2B15F1C300852E71 /* PokemonCellView.swift */,
 				24C7D90B2B14ECB0003D6CBD /* PokemonDetailView.swift */,
+				F95FEC3C2D6958BE00208816 /* SlotMachineView.swift */,
 				24C7D90D2B14F01D003D6CBD /* SlotMachineContainerView.swift */,
 				F94C30B12D67F95E0078398A /* SlotMachineViewController.swift */,
 			);
@@ -212,6 +215,7 @@
 				F95FEC392D69552C00208816 /* Pokemon.swift in Sources */,
 				248606A62B14A62400D545A9 /* SplashView.swift in Sources */,
 				24C7D90E2B14F01E003D6CBD /* SlotMachineContainerView.swift in Sources */,
+				F95FEC3D2D6958BE00208816 /* SlotMachineView.swift in Sources */,
 				248606A42B14A62400D545A9 /* PokespinApp.swift in Sources */,
 				F94C30B42D67FAB40078398A /* Constants.swift in Sources */,
 				F95FEC372D69550E00208816 /* IPokemon.swift in Sources */,

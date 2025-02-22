@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonDetailView: View {
 
-    var pokemon: IPokemon
+    var pokemon: Pokemon
 
     var body: some View {
         VStack {
@@ -24,9 +24,4 @@ struct PokemonDetailView: View {
         }
         .navigationTitle("Pokemon")
     }
-}
-
-#Preview {
-    PokemonDetailView(pokemon: Pokemon(name: PokemonStorage.convertName(number: 1), number: "1",
-                                 isUnlocked: true))
 }

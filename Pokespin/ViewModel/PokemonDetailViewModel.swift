@@ -13,7 +13,7 @@ public class PokemonDetailViewModel {
     
     var pokemonNumber: Int
     
-    var pokemon: IPokemon?
+    var pokemon: Pokemon?
     
     init(pokemonNumber: Int) {
         self.pokemonNumber = pokemonNumber
@@ -23,9 +23,9 @@ public class PokemonDetailViewModel {
         do {
             let pokemonData = try await client.requestJSON(pokemonNumber: pokemonNumber)
             let decoder = JSONDecoder()
-            var pokemon = try decoder.decode(Pokemon.self, from: pokemonData)
-            pokemon.isUnlocked = true
-            self.pokemon = pokemon
+            //var pokemon = try decoder.decode(Pokemon.self, from: pokemonData)
+            //pokemon.isUnlocked = true
+            //self.pokemon = pokemon
             // PokemonManager.add(pokemon: pokemon)
             return pokemon
         } catch (let error) {

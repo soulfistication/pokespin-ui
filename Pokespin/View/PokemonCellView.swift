@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct PokemonCellView: View {
+    
+    let index: Int
 
-    @State var pokemon: IPokemon
-
+    @Binding var pokemonStorage: PokemonStorage
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10.0)
                 .foregroundColor(Color(uiColor: UIColor.creamyBlue))
-            if pokemon.isUnlocked {
+            if pokemonStorage.pokemons[index].isUnlocked {
                 NavigationLink {
-                    PokemonDetailView(pokemon: pokemon)
+                    PokemonDetailView(pokemon: pokemonStorage.pokemons[index])
                 } label: {
-                    Image(String(pokemon.number))
+                    Image(String(pokemonStorage.pokemons[index].number))
                         .resizable()
                         .frame(width: 60, height: 60)
                 }
             } else {
                 NavigationLink {
-                    SlotMachineView(pokemon: $pokemon)
+                    SlotMachineView(index: index, pokemonStorage: $pokemonStorage)
                 } label: {
-                    Text("\(pokemon.number)")
+                    Text("\(pokemonStorage.pokemons[index].number)")
                         .font(.largeTitle)
                         .foregroundColor(Color.white)
                         .padding()

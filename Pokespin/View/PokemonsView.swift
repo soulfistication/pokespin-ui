@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonsView: View {
 
-    @StateObject var pokemonStorage: PokemonStorage
+    @StateObject private var pokemonStorage = PokemonStorage()
 
     var body: some View {
         Grid {
@@ -17,8 +17,7 @@ struct PokemonsView: View {
                 GridRow {
                     ForEach(0..<3) { column in
                         let index = 3 * row + column
-                        let pokemon = pokemonStorage.pokemons[index]
-                        PokemonCellView(pokemon: pokemon)
+                        PokemonCellView(index: index, pokemonStorage: $pokemonStorage)
                     }
                 }
             }
@@ -27,8 +26,4 @@ struct PokemonsView: View {
         .padding(.all)
     }
 
-}
-
-#Preview {
-    PokemonsView(pokemonStorage: PokemonStorage(pokemons: PokemonStorage.generatePokemons()))
 }

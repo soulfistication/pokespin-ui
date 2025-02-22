@@ -5,9 +5,11 @@
 //  Created by Montserrat Arroyo on 2/21/25.
 //
 
-protocol IPokemon {
+import Combine
+
+protocol IPokemon: ObservableObject {
     var name: String { get }
     var number: String { get }
     var isUnlocked: Bool { get }
-    mutating func unlock()
+    func unlock()
 }

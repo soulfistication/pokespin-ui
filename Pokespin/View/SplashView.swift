@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SplashView: View {
-
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -23,7 +23,7 @@ struct SplashView: View {
                     .font(.footnote)
                 Spacer()
                 NavigationLink {
-                    PokemonsView(pokemonStorage: PokemonStorage(pokemons: PokemonStorage.generatePokemons()))
+                    PokemonsView()
                 } label: {
                     Text("Start game")
                         .padding(.top)
