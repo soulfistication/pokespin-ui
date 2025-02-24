@@ -68,6 +68,5 @@ struct SlotMachineView: View {
             }
         }
         .padding(.all)
-        .environmentObject(pokemonStorage)
     }
 }

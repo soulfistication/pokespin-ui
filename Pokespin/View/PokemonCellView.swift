@@ -35,6 +35,6 @@ struct PokemonCellView: View {
                         .padding()
                 }
             }
-        }.environmentObject(pokemonStorage)
+        }
     }
 }

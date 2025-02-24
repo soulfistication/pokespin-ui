@@ -95,7 +95,6 @@ class SlotMachineViewController: UIViewController, UIPickerViewDataSource, UIPic
 
         let firstHit = firstSymbol == secondSymbol
         let secondHit = secondSymbol == thirdSymbol
-        let thirdHit = firstSymbol == thirdSymbol
 
         let successHit = firstHit && secondHit
 
