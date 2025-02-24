@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
-
-    var pokemon: Pokemon
-
+    
+    let index: Int
+    
+    @EnvironmentObject var pokemonStorage: PokemonStorage
+    
     var body: some View {
         VStack {
-            Text("You unlocked: \(pokemon.name)")
+            Text("You unlocked: \(pokemonStorage.pokemons[index].name)")
                 .font(.title)
-            Text("Pokemon number: \(pokemon.number)")
+            Text("Pokemon number: \(pokemonStorage.pokemons[index].number)")
                 .font(.title2)
-            Image(pokemon.number)
+            Image(pokemonStorage.pokemons[index].number)
                 .resizable()
                 .scaledToFit()
                 .padding(.all)

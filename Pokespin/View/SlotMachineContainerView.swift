@@ -13,7 +13,7 @@ struct SlotMachineContainerView: UIViewControllerRepresentable {
     
     @Binding var userHasWon: Bool
     @Binding var sheetIsPresented: Bool
-    @Binding var pokemonStorage: PokemonStorage
+    @EnvironmentObject var pokemonStorage: PokemonStorage
     
     class Coordinator: NSObject, SlotMachineExecutable {
         
@@ -27,7 +27,7 @@ struct SlotMachineContainerView: UIViewControllerRepresentable {
             parent.userHasWon = win
             parent.sheetIsPresented = true
             if win {
-                var pokemon = parent.pokemonStorage.pokemons[parent.index]
+                let pokemon = parent.pokemonStorage.pokemons[parent.index]
                 pokemon.unlock()
             }
         }

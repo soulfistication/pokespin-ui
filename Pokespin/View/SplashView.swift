@@ -47,7 +47,3 @@ struct SplashView: View {
         print("Dump db")
     }
 }
-
-#Preview {
-    SplashView()
-}

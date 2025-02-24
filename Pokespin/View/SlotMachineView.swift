@@ -11,7 +11,7 @@ struct SlotMachineView: View {
     
     let index: Int
 
-    @Binding var pokemonStorage: PokemonStorage
+    @EnvironmentObject var pokemonStorage: PokemonStorage
     @State var sheetIsPresented = false
     @State var userHasWon = false
     @Environment(\.dismiss) var dismiss
@@ -35,8 +35,7 @@ struct SlotMachineView: View {
             .padding(.bottom)
             SlotMachineContainerView(index: index,
                                      userHasWon: $userHasWon,
-                                     sheetIsPresented: $sheetIsPresented,
-                                     pokemonStorage: $pokemonStorage)
+                                     sheetIsPresented: $sheetIsPresented)
             .sheet(isPresented: $sheetIsPresented) {
                 if userHasWon {
                     VStack {
@@ -69,5 +68,6 @@ struct SlotMachineView: View {
             }
         }
         .padding(.all)
+        .environmentObject(pokemonStorage)
     }
 }

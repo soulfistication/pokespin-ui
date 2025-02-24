@@ -11,7 +11,7 @@ struct PokemonCellView: View {
     
     let index: Int
 
-    @Binding var pokemonStorage: PokemonStorage
+    @EnvironmentObject var pokemonStorage: PokemonStorage
     
     var body: some View {
         ZStack {
@@ -19,7 +19,7 @@ struct PokemonCellView: View {
                 .foregroundColor(Color(uiColor: UIColor.creamyBlue))
             if pokemonStorage.pokemons[index].isUnlocked {
                 NavigationLink {
-                    PokemonDetailView(pokemon: pokemonStorage.pokemons[index])
+                    PokemonDetailView(index: index)
                 } label: {
                     Image(String(pokemonStorage.pokemons[index].number))
                         .resizable()
@@ -27,7 +27,7 @@ struct PokemonCellView: View {
                 }
             } else {
                 NavigationLink {
-                    SlotMachineView(index: index, pokemonStorage: $pokemonStorage)
+                    SlotMachineView(index: index)
                 } label: {
                     Text("\(pokemonStorage.pokemons[index].number)")
                         .font(.largeTitle)
@@ -35,6 +35,6 @@ struct PokemonCellView: View {
                         .padding()
                 }
             }
-        }
+        }.environmentObject(pokemonStorage)
     }
 }
