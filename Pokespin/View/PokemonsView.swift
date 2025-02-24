@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PokemonsView: View {
 
-    @StateObject private var pokemonStorage = PokemonStorage()
+    @ObservedObject var pokemonStorage = PokemonStorage()
 
     var body: some View {
         Grid {
