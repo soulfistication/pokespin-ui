@@ -21,8 +21,8 @@ public class PokemonDetailViewModel {
     
     func fetchPokemon() async -> Pokemon? {
         do {
-            let pokemonData = try await client.requestJSON(pokemonNumber: pokemonNumber)
-            let decoder = JSONDecoder()
+            let _ = try await client.requestJSON(pokemonNumber: pokemonNumber)
+            //let decoder = JSONDecoder()
             //var pokemon = try decoder.decode(Pokemon.self, from: pokemonData)
             //pokemon.isUnlocked = true
             //self.pokemon = pokemon
